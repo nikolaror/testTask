@@ -41,15 +41,18 @@ namespace MittoAgSMS.BusinessLogic
         public State SendSMS(BusinessModel.SmsToSend message)
         {
             var phoneNumberValidator = new PhoneNumberValidator();
-            phoneNumberValidator.SetModel(message.To);
+            phoneNumberValidator.SetModel(message?.To);
             if (!phoneNumberValidator.Validate())
             {
                 throw new Exception("Receiver not valid!");
             }
             string countryCode = GetCountryCodeFromNumber(message.To);
             string MccForPhone = _countryService.GetMccForNumber(countryCode);
-
-            DomainModel.Sms domainMessage = new DomainModel.Sms() { From = message.From, To = message.To, Text = message.Text, MobileCountryCode = MccForPhone.Trim(), Sent = DateTime.Now };
+            if(string.IsNullOrEmpty(MccForPhone))
+            {
+                throw new Exception("Mcc not valid!");
+            }
+            DomainModel.Sms domainMessage = new DomainModel.Sms() { From = message.From, To = message.To, Text = message.Text??string.Empty, MobileCountryCode = MccForPhone.Trim(), Sent = DateTime.Now };
 
             bool result = _sendSmsService.SendSMS(domainMessage);
             domainMessage.State = result;

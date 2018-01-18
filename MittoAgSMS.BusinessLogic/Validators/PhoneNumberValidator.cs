@@ -18,7 +18,7 @@ namespace MittoAgSMS.BusinessLogic.Validators
         public bool Validate()
         {
             Regex re = new Regex(@"^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]+\d$");
-            var result = re.Match(_input);
+            var result = re.Match(_input ?? string.Empty);
             return result.Success;
         }
     }

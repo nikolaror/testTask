@@ -1,0 +1,39 @@
+﻿using System;
+using AutoMapper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MittoAgSMS.BusinessLogic;
+using MittoAgSMS.Services.Abstractions;
+using Moq;
+
+namespace MittoAgSMS.Tests
+{
+    [TestClass]
+    public class StatisticsBusinessLogicTests
+    {
+        private StatisticsBusinessLogic _businessLogic;
+        private readonly Mock<IStatisticsService> _statisticsService;
+
+        private readonly Mock<Mapper> _automapper;
+
+
+        public StatisticsBusinessLogicTests()
+        {
+            _statisticsService = new Mock<IStatisticsService>();
+            _statisticsService.Setup(x => x.GetStatistics(It.IsAny<DomainModel.GetStatisticsRequestDomain>())).Returns(
+                new System.Collections.Generic.List<DomainModel.Sms>() { new DomainModel.Sms() { } });
+
+            _businessLogic = new StatisticsBusinessLogic(_statisticsService.Object);
+        }
+
+        [TestMethod]
+        public void GetStatistics_returns_empty_element()
+        {
+            //assign
+
+            //act
+            var statistics = _businessLogic.GetStatistics(new BusinessModel.GetStatisticsRequest() { MccList=null});
+            //assert
+            Assert.IsNotNull(statistics);
+        }
+    }
+}

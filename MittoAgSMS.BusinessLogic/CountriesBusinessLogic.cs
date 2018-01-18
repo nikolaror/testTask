@@ -21,7 +21,8 @@ namespace MittoAgSMS.BusinessLogic
 
         public Country[] GetCountries()
         {
-            DomainModel.Country[] domainModel = _countriesService.GetCountries();
+            DomainModel.Country[] domainModel = new DomainModel.Country[0];
+            domainModel = _countriesService.GetCountries();
             BusinessModel.Country[] blModel = Mapper.Map<MittoAgSMS.DomainModel.Country[], MittoAgSMS.BusinessModel.Country[]>(domainModel);
             return blModel;
         }

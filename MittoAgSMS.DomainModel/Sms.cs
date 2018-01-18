@@ -13,7 +13,7 @@ namespace MittoAgSMS.DomainModel
         public string To { get; set; }
         public string Text { get; set; }
         public string MobileCountryCode { get; set; }
-        public Nullable<System.DateTime> Sent { get; set; }
+        public System.DateTime Sent { get; set; }
         public virtual Country Country { get; set; }
         public bool State { get; set; }
 
