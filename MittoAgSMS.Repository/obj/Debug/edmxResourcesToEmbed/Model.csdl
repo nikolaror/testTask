@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MittoSMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ModelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Sms" EntityType="MittoSMSModel.Sms" />
+    <EntitySet Name="Countries" EntityType="MittoSMSModel.Country" />
+    <AssociationSet Name="CountrySentSms" Association="MittoSMSModel.CountrySentSms">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="SentSms" EntitySet="Sms" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Sms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="To" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+    <Property Name="MobileCountryCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sent" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Country" Relationship="MittoSMSModel.CountrySentSms" FromRole="SentSms" ToRole="Country" />
+    <Property Name="State" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="MobileCountryCode" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MobileCountryCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PricePerSms" Type="Decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <Association Name="CountrySentSms">
+    <End Type="MittoSMSModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="MittoSMSModel.Sms" Role="SentSms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="MobileCountryCode" />
+      </Principal>
+      <Dependent Role="SentSms">
+        <PropertyRef Name="MobileCountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

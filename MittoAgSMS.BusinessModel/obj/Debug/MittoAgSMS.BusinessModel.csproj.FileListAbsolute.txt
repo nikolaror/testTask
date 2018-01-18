@@ -1,0 +1,6 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\bin\Debug\MittoAgSMS.BusinessModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\bin\Debug\MittoAgSMS.BusinessModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\obj\Debug\MittoAgSMS.BusinessModel.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\obj\Debug\MittoAgSMS.BusinessModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\obj\Debug\MittoAgSMS.BusinessModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessModel\obj\Debug\MittoAgSMS.BusinessModel.csprojResolveAssemblyReference.cache

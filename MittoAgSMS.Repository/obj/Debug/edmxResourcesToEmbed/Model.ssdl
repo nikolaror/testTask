@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MittoSMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="MobileCountryCode" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileCountryCode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryCode" Type="nchar" MaxLength="10" />
+    <Property Name="PricePerSms" Type="decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="SentSms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="From" Type="nvarchar" MaxLength="50" />
+    <Property Name="To" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text" Type="nvarchar" MaxLength="160" />
+    <Property Name="MobileCountryCode" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sent" Type="datetime" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <Association Name="FK_MobileCc">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="SentSms" Type="Self.SentSms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="MobileCountryCode" />
+      </Principal>
+      <Dependent Role="SentSms">
+        <PropertyRef Name="MobileCountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MittoSMSModelStoreContainer">
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentSms" EntityType="Self.SentSms" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MobileCc" Association="Self.FK_MobileCc">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="SentSms" EntitySet="SentSms" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

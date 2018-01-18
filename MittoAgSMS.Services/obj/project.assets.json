@@ -1,0 +1,376 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "MittoAgSMS.DataAccessLayer.Abstraction/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win": {
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "MittoAgSMS.DataAccessLayer.Abstraction/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win-x64": {
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "MittoAgSMS.DataAccessLayer.Abstraction/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win-x86": {
+      "Serilog/2.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.dll": {}
+        }
+      },
+      "Serilog.Sinks.File/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.5.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "MittoAgSMS.DataAccessLayer.Abstraction/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DataAccessLayer.Abstraction.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Serilog/2.6.0": {
+      "sha512": "hxHgHkza8ZowrvQ+jTEF2ypDWGP8NbNtxPQIx7ogTAM9fisDFo2+6kOaxCkleZLO8hiyq0kW5tDLkgm/dbj9uA==",
+      "type": "package",
+      "path": "serilog/2.6.0",
+      "files": [
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml",
+        "lib/net46/Serilog.dll",
+        "lib/net46/Serilog.xml",
+        "lib/netstandard1.0/Serilog.dll",
+        "lib/netstandard1.0/Serilog.xml",
+        "lib/netstandard1.3/Serilog.dll",
+        "lib/netstandard1.3/Serilog.xml",
+        "serilog.2.6.0.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
+    "Serilog.Sinks.File/4.0.0": {
+      "sha512": "vBj43RkAbeP1dzoPFR2+LfV5GevDRPDq6265JJBv223lMvT9rfdwe/S/I9ow7aZSLYKfw4qPDw6NW8YwjbDbvg==",
+      "type": "package",
+      "path": "serilog.sinks.file/4.0.0",
+      "files": [
+        "lib/net45/Serilog.Sinks.File.dll",
+        "lib/net45/Serilog.Sinks.File.xml",
+        "lib/netstandard1.3/Serilog.Sinks.File.dll",
+        "lib/netstandard1.3/Serilog.Sinks.File.xml",
+        "serilog.sinks.file.4.0.0.nupkg.sha512",
+        "serilog.sinks.file.nuspec"
+      ]
+    },
+    "MittoAgSMS.DataAccessLayer.Abstraction/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.Repository.Abstraction/MittoAgSMS.DataAccessLayer.Abstraction.csproj",
+      "msbuildProject": "../MittoAgSMS.Repository.Abstraction/MittoAgSMS.DataAccessLayer.Abstraction.csproj"
+    },
+    "MittoAgSMS.DomainModel/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.DomainModel/MittoAgSMS.DomainModel.csproj",
+      "msbuildProject": "../MittoAgSMS.DomainModel/MittoAgSMS.DomainModel.csproj"
+    },
+    "MittoAgSMS.Services.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.Services.Abstractions/MittoAgSMS.Services.Abstractions.csproj",
+      "msbuildProject": "../MittoAgSMS.Services.Abstractions/MittoAgSMS.Services.Abstractions.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.5": [
+      "MittoAgSMS.DataAccessLayer.Abstraction >= 1.0.0",
+      "MittoAgSMS.DomainModel >= 1.0.0",
+      "MittoAgSMS.Services.Abstractions >= 1.0.0",
+      "Serilog >= 2.6.0",
+      "Serilog.Sinks.File >= 4.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\dux29\\.nuget\\packages\\": {},
+    "C:\\Users\\dux29\\.dotnet\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services\\MittoAgSMS.Services.csproj",
+      "projectName": "MittoAgSMS.Services",
+      "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services\\MittoAgSMS.Services.csproj",
+      "packagesPath": "C:\\Users\\dux29\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Users\\dux29\\.dotnet\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\dux29\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net45"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\local-nuget": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net45": {
+          "projectReferences": {
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.DomainModel\\MittoAgSMS.DomainModel.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.DomainModel\\MittoAgSMS.DomainModel.csproj"
+            },
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Repository.Abstraction\\MittoAgSMS.DataAccessLayer.Abstraction.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Repository.Abstraction\\MittoAgSMS.DataAccessLayer.Abstraction.csproj"
+            },
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services.Abstractions\\MittoAgSMS.Services.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services.Abstractions\\MittoAgSMS.Services.Abstractions.csproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net45": {
+        "dependencies": {
+          "Serilog": {
+            "target": "Package",
+            "version": "[2.6.0, )"
+          },
+          "Serilog.Sinks.File": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

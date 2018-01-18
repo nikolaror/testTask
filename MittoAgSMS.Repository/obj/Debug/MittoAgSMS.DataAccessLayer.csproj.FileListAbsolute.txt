@@ -1,0 +1,13 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\obj\Debug\MittoAgSMS.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\obj\Debug\MittoAgSMS.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DataAccessLayer.dll.config
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DataAccessLayer.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DataAccessLayer.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\EntityFramework.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DataAccessLayer.Abstraction.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DomainModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DomainModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\bin\Debug\MittoAgSMS.DataAccessLayer.Abstraction.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\obj\Debug\MittoAgSMS.DataAccessLayer.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Repository\obj\Debug\MittoAgSMS.DataAccessLayer.pdb

@@ -1,0 +1,6 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\bin\Debug\MittoAgSMS.Logger.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\bin\Debug\MittoAgSMS.Logger.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\obj\Debug\MittoAgSMS.Logger.Abstractions.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\obj\Debug\MittoAgSMS.Logger.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\obj\Debug\MittoAgSMS.Logger.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger.Abstractions\obj\Debug\MittoAgSMS.Logger.Abstractions.pdb

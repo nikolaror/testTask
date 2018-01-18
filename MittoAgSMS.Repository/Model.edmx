@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MittoSMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="MobileCountryCode" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileCountryCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="10" />
+          <Property Name="PricePerSms" Type="decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <EntityType Name="SentSms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="From" Type="nvarchar" MaxLength="50" />
+          <Property Name="To" Type="nvarchar" MaxLength="50" />
+          <Property Name="Text" Type="nvarchar" MaxLength="160" />
+          <Property Name="MobileCountryCode" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sent" Type="datetime" />
+          <Property Name="State" Type="bit" />
+        </EntityType>
+        <Association Name="FK_MobileCc">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="SentSms" Type="Self.SentSms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="MobileCountryCode" />
+            </Principal>
+            <Dependent Role="SentSms">
+              <PropertyRef Name="MobileCountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MittoSMSModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentSms" EntityType="Self.SentSms" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MobileCc" Association="Self.FK_MobileCc">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="SentSms" EntitySet="SentSms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MittoSMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ModelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sms" EntityType="MittoSMSModel.Sms" />
+          <EntitySet Name="Countries" EntityType="MittoSMSModel.Country" />
+          <AssociationSet Name="CountrySentSms" Association="MittoSMSModel.CountrySentSms">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="SentSms" EntitySet="Sms" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Sms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="To" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="MobileCountryCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sent" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="MittoSMSModel.CountrySentSms" FromRole="SentSms" ToRole="Country" />
+          <Property Name="State" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="MobileCountryCode" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileCountryCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PricePerSms" Type="Decimal" Precision="18" Scale="3" />
+        </EntityType>
+        <Association Name="CountrySentSms">
+          <End Type="MittoSMSModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="MittoSMSModel.Sms" Role="SentSms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="MobileCountryCode" />
+            </Principal>
+            <Dependent Role="SentSms">
+              <PropertyRef Name="MobileCountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MittoSMSModelStoreContainer" CdmEntityContainer="ModelEntities">
+          <EntitySetMapping Name="Sms">
+            <EntityTypeMapping TypeName="IsTypeOf(MittoSMSModel.Sms)">
+              <MappingFragment StoreEntitySet="SentSms">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="MobileCountryCode" ColumnName="MobileCountryCode" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MittoSMSModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="PricePerSms" ColumnName="PricePerSms" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="MobileCountryCode" ColumnName="MobileCountryCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

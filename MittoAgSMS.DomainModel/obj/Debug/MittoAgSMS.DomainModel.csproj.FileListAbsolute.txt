@@ -1,0 +1,6 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\bin\Debug\MittoAgSMS.DomainModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\bin\Debug\MittoAgSMS.DomainModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\obj\Debug\MittoAgSMS.DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\obj\Debug\MittoAgSMS.DomainModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\obj\Debug\MittoAgSMS.DomainModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.DomainModel\obj\Debug\MittoAgSMS.DomainModel.csprojResolveAssemblyReference.cache

@@ -1,0 +1,355 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessLogic.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.BusinessModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessLogic.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.BusinessModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win-x64": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessLogic.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.BusinessModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win-x86": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessLogic.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.BusinessModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessLogic.Abstractions.dll": {}
+        }
+      },
+      "MittoAgSMS.BusinessModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.BusinessModel.dll": {}
+        }
+      },
+      "MittoAgSMS.DomainModel/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.DomainModel.dll": {}
+        }
+      },
+      "MittoAgSMS.Services.Abstractions/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "MittoAgSMS.DomainModel": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MittoAgSMS.Services.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutoMapper/6.2.2": {
+      "sha512": "eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
+      "type": "package",
+      "path": "automapper/6.2.2",
+      "files": [
+        "automapper.6.2.2.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net40/AutoMapper.dll",
+        "lib/net40/AutoMapper.xml",
+        "lib/net45/AutoMapper.dll",
+        "lib/net45/AutoMapper.xml",
+        "lib/netstandard1.1/AutoMapper.dll",
+        "lib/netstandard1.1/AutoMapper.xml",
+        "lib/netstandard1.3/AutoMapper.dll",
+        "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
+    "MittoAgSMS.BusinessLogic.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.BusinessLogic.Abstractions/MittoAgSMS.BusinessLogic.Abstractions.csproj",
+      "msbuildProject": "../MittoAgSMS.BusinessLogic.Abstractions/MittoAgSMS.BusinessLogic.Abstractions.csproj"
+    },
+    "MittoAgSMS.BusinessModel/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.BusinessModel/MittoAgSMS.BusinessModel.csproj",
+      "msbuildProject": "../MittoAgSMS.BusinessModel/MittoAgSMS.BusinessModel.csproj"
+    },
+    "MittoAgSMS.DomainModel/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.DomainModel/MittoAgSMS.DomainModel.csproj",
+      "msbuildProject": "../MittoAgSMS.DomainModel/MittoAgSMS.DomainModel.csproj"
+    },
+    "MittoAgSMS.Services.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../MittoAgSMS.Services.Abstractions/MittoAgSMS.Services.Abstractions.csproj",
+      "msbuildProject": "../MittoAgSMS.Services.Abstractions/MittoAgSMS.Services.Abstractions.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.5": [
+      "AutoMapper >= 6.2.2",
+      "MittoAgSMS.BusinessLogic.Abstractions >= 1.0.0",
+      "MittoAgSMS.BusinessModel >= 1.0.0",
+      "MittoAgSMS.DomainModel >= 1.0.0",
+      "MittoAgSMS.Services.Abstractions >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\dux29\\.nuget\\packages\\": {},
+    "C:\\Users\\dux29\\.dotnet\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessLogic\\MittoAgSMS.BusinessLogic.csproj",
+      "projectName": "MittoAgSMS.BusinessLogic",
+      "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessLogic\\MittoAgSMS.BusinessLogic.csproj",
+      "packagesPath": "C:\\Users\\dux29\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessLogic\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Users\\dux29\\.dotnet\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\dux29\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net45"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\local-nuget": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net45": {
+          "projectReferences": {
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessLogic.Abstractions\\MittoAgSMS.BusinessLogic.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessLogic.Abstractions\\MittoAgSMS.BusinessLogic.Abstractions.csproj"
+            },
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessModel\\MittoAgSMS.BusinessModel.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.BusinessModel\\MittoAgSMS.BusinessModel.csproj"
+            },
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.DomainModel\\MittoAgSMS.DomainModel.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.DomainModel\\MittoAgSMS.DomainModel.csproj"
+            },
+            "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services.Abstractions\\MittoAgSMS.Services.Abstractions.csproj": {
+              "projectPath": "C:\\Users\\dux29\\documents\\visual studio 2017\\Projects\\MittoAgSMS\\MittoAgSMS.Services.Abstractions\\MittoAgSMS.Services.Abstractions.csproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net45": {
+        "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[6.2.2, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

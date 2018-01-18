@@ -1,0 +1,11 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\MittoAgSMS.Logger.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\MittoAgSMS.Logger.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\Serilog.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\Serilog.Sinks.Console.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\Serilog.Sinks.File.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\MittoAgSMS.Logger.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\bin\Debug\MittoAgSMS.Logger.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\obj\Debug\MittoAgSMS.Logger.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\obj\Debug\MittoAgSMS.Logger.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\obj\Debug\MittoAgSMS.Logger.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Logger\obj\Debug\MittoAgSMS.Logger.pdb

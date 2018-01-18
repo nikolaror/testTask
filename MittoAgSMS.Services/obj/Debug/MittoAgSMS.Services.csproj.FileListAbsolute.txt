@@ -1,0 +1,14 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.Services.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.Services.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\Serilog.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\Serilog.Sinks.File.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.DataAccessLayer.Abstraction.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.DomainModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.Services.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.DomainModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.DataAccessLayer.Abstraction.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\bin\Debug\MittoAgSMS.Services.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\obj\Debug\MittoAgSMS.Services.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\obj\Debug\MittoAgSMS.Services.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\obj\Debug\MittoAgSMS.Services.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.Services\obj\Debug\MittoAgSMS.Services.pdb

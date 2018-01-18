@@ -1,0 +1,8 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\bin\Debug\MittoAgSMS.BusinessLogic.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\bin\Debug\MittoAgSMS.BusinessLogic.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\bin\Debug\MittoAgSMS.BusinessModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\bin\Debug\MittoAgSMS.BusinessModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\obj\Debug\MittoAgSMS.BusinessLogic.Abstractions.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\obj\Debug\MittoAgSMS.BusinessLogic.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\obj\Debug\MittoAgSMS.BusinessLogic.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic.Abstractions\obj\Debug\MittoAgSMS.BusinessLogic.Abstractions.pdb

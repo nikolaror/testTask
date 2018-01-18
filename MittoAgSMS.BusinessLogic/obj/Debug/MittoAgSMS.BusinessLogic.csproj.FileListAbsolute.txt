@@ -1,0 +1,15 @@
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessLogic.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessLogic.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessLogic.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.DomainModel.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.Services.Abstractions.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessLogic.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.BusinessModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.DomainModel.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\MittoAgSMS.Services.Abstractions.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\obj\Debug\MittoAgSMS.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\obj\Debug\MittoAgSMS.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\obj\Debug\MittoAgSMS.BusinessLogic.dll
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\obj\Debug\MittoAgSMS.BusinessLogic.pdb
+C:\Users\dux29\Documents\Visual Studio 2017\Projects\MittoAgSMS\MittoAgSMS.BusinessLogic\bin\Debug\AutoMapper.dll
