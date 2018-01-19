@@ -18,11 +18,12 @@ namespace MittoAgSMS
                     .ForMember(source => source.Name, destination => destination.MapFrom(x => x.Name.Trim()))
                     .ForMember(source => source.PricePerSms, destination => destination.MapFrom(x => x.PricePerSms));
 
-
                     config.CreateMap<BusinessModel.SentSmsFilterRequest, DomainModel.SentSmsFilterRequest>().ReverseMap();
 
-
                     config.CreateMap<MittoAgSMS.DomainModel.Sms, MittoAgSMS.BusinessModel.Sms>().ReverseMap();
+
+                    config.CreateMap<MittoAgSMS.DomainModel.Sms, MittoAgSMS.BusinessModel.SentSmsResponse>().ReverseMap();
+
 
 
                 });

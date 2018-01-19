@@ -9,7 +9,7 @@ namespace MittoAgSMS.BusinessModel
     public class SentSmsFilterResponse
     {
         public int TotalCount { get; set; }
-        public Sms[] Items { get; set; }
+        public MittoAgSMS.BusinessModel.SentSmsResponse[] Items { get; set; }
 
     }
 }

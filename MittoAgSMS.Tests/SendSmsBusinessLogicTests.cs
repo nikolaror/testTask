@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MittoAgSMS.BusinessLogic;
@@ -25,6 +26,16 @@ namespace MittoAgSMS.Tests
             _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns("32");
 
             _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object);
+        }
+
+        [TestMethod]
+        public void SendSMS_longer_than_160_return_multiple()
+        {
+            //assign
+            //act
+             var countries = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
+            //assert
+
         }
 
         [TestMethod]
