@@ -17,14 +17,15 @@ namespace MittoAgSMS.Services
             _countriesRepository = countriesRepository;
         }
 
-        public Country[] GetCountries()
+        public async Task<Country[]> GetCountries()
         {
-            return _countriesRepository.GetAll().ToArray();
+            return await _countriesRepository.GetAllCountries();
         }
 
-        public string GetMccForNumber(string countryCode)
+        public async Task<string> GetMccForNumber(string countryCode)
         {
-            return _countriesRepository.FindBy(x=>x.CountryCode== countryCode).FirstOrDefault().MobileCountryCode;
+            var res = await _countriesRepository.FindBy(x => x.CountryCode == countryCode);
+            return res.FirstOrDefault().MobileCountryCode;
         }
     }
 }

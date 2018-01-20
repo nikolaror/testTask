@@ -10,6 +10,6 @@ namespace MittoAgSMS.DataAccessLayer.Abstraction
 {
     public interface ISentSmsRepository : IGenericRepository<DomainModel.Sms>
     {
-        Sms[] FilterSentSms(SentSmsFilterRequest dlRequest);
+        Task<Sms[]> FilterSentSms(SentSmsFilterRequest dlRequest);
     }
 }

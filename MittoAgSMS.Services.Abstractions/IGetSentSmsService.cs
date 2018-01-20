@@ -9,6 +9,6 @@ namespace MittoAgSMS.Services.Abstractions
 {
     public interface IGetSentSmsService
     {
-        Sms[] GetSentSms(SentSmsFilterRequest dlRequest);
+        Task<Sms[]> GetSentSms(SentSmsFilterRequest dlRequest);
     }
 }

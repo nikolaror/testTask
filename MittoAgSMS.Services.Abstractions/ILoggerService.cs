@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MittoAgSMS.Services.Abstractions
 {
-    public interface ICountriesService
+    public interface ILoggerService
     {
-        Task<MittoAgSMS.DomainModel.Country[]> GetCountries();
-        Task<string> GetMccForNumber(string countryCode);
+        void LogDebug(string message);
+        void LogError(string message);
     }
 }

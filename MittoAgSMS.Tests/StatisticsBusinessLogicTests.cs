@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MittoAgSMS.BusinessLogic;
@@ -19,8 +20,7 @@ namespace MittoAgSMS.Tests
             _statisticsService = new Mock<IStatisticsService>();
             _logger = new Mock<ILoggerService>();
 
-            _statisticsService.Setup(x => x.GetStatistics(It.IsAny<DomainModel.GetStatisticsRequestDomain>())).Returns(
-                new System.Collections.Generic.List<DomainModel.Sms>() { new DomainModel.Sms() { } });
+            _statisticsService.Setup(x => x.GetStatistics(It.IsAny<DomainModel.GetStatisticsRequestDomain>())).Returns(Task.FromResult(new System.Collections.Generic.List<DomainModel.Sms>() { new DomainModel.Sms() { } }));
 
             _businessLogic = new StatisticsBusinessLogic(_statisticsService.Object, _logger.Object);
         }

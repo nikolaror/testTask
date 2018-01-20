@@ -9,6 +9,6 @@ namespace MittoAgSMS.BusinessLogic.Abstractions
 {
     public interface IStatisticsBusinessLogic
     {
-        Statistic[] GetStatistics(GetStatisticsRequest request);
+        Task<Statistic[]> GetStatistics(GetStatisticsRequest request);
     }
 }

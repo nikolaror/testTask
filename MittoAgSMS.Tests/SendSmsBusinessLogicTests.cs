@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MittoAgSMS.BusinessLogic;
@@ -23,9 +24,9 @@ namespace MittoAgSMS.Tests
             _getSentService = new Mock<IGetSentSmsService>();
             _countiresService = new Mock<ICountriesService>();
             _logger = new Mock<ILoggerService>();
-            _sendSmsService.Setup(x => x.InsertSentSms(It.IsAny<DomainModel.Sms>()));
-            _sendSmsService.Setup(x => x.SendSMS(It.IsAny<DomainModel.Sms>())).Returns(true);
-            _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns("32");
+            _sendSmsService.Setup(x => x.InsertSentSms(It.IsAny<DomainModel.Sms>())).Returns(Task.FromResult(1));
+           _sendSmsService.Setup(x => x.SendSMS(It.IsAny<DomainModel.Sms>())).Returns(Task.FromResult(true));
+            _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns(Task.FromResult("32"));
 
             _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object, _logger.Object);
         }
@@ -94,19 +95,19 @@ namespace MittoAgSMS.Tests
             //act
              var status = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4444545459989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
             //assert
-            Assert.AreEqual(status, BusinessModel.State.Success);
+            Assert.AreEqual(status.Result, BusinessModel.State.Success);
         }
 
         [TestMethod]
         public void SendSMS_country_code_not_valid_returns_failed()
         {
             //assign
-            _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns("");
+            _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns(Task.FromResult(""));
             _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object, _logger.Object);
             //act
             var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+444994545454489989", Text = "this is test" });
             //assert
-            Assert.AreEqual(result, BusinessModel.State.Failed);
+            Assert.AreEqual(result.Result, BusinessModel.State.Failed);
 
         }
 
@@ -117,7 +118,7 @@ namespace MittoAgSMS.Tests
             //act
             var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "p4449989989", Text = "this is test" });
             //assert
-            Assert.AreEqual(result, BusinessModel.State.Failed);
+            Assert.AreEqual(result.Result, BusinessModel.State.Failed);
 
 
         }
@@ -130,7 +131,7 @@ namespace MittoAgSMS.Tests
             //act
             var smsState = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = string.Empty });
             //assert
-            Assert.AreEqual(smsState, BusinessModel.State.Success);
+            Assert.AreEqual(smsState.Result, BusinessModel.State.Success);
         }
 
         [TestMethod]
@@ -141,7 +142,7 @@ namespace MittoAgSMS.Tests
             //act
             var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = string.Empty, Text = string.Empty });
             //assert
-            Assert.AreEqual(result, BusinessModel.State.Failed);
+            Assert.AreEqual(result.Result, BusinessModel.State.Failed);
         }
 
         [TestMethod]
@@ -152,7 +153,7 @@ namespace MittoAgSMS.Tests
             //act
             var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() {});
             //assert
-            Assert.AreEqual(result, BusinessModel.State.Failed);
+            Assert.AreEqual(result.Result, BusinessModel.State.Failed);
 
         }
 
@@ -164,7 +165,7 @@ namespace MittoAgSMS.Tests
             //act
             var result = _businessLogic.SendSMS(null);
             //assert
-            Assert.AreEqual(result, BusinessModel.State.Failed);
+            Assert.AreEqual(result.Result, BusinessModel.State.Failed);
         }
     }
 }

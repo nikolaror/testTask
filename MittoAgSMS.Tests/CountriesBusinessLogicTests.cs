@@ -36,10 +36,10 @@ namespace MittoAgSMS.Tests
         public void GetCountries_one_element_returns_length()
         {
             //assign
-            _countriesService.Setup(x => x.GetCountries()).Returns(new Country[] { new Country() { Name = "Austria", MobileCountryCode = "9999" } });
+            _countriesService.Setup(x => x.GetCountries()).Returns(System.Threading.Tasks.Task.FromResult(new Country[] { new Country() { Name = "Austria", MobileCountryCode = "9999" } }));
             _businessLogic = new CountriesBusinessLogic(_countriesService.Object, _logger.Object);
             //act
-            var countries = _businessLogic.GetCountries();
+            var countries = _businessLogic.GetCountries().Result;
             //assert
             Assert.AreEqual(countries.Length, 1);
         }

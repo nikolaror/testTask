@@ -21,6 +21,8 @@ namespace MittoAgSMS.DataAccessLayer
             : base("name=ModelEntities")
         {
             base.Configuration.ProxyCreationEnabled = false;
+            base.Configuration.LazyLoadingEnabled = false;
+
 
         }
 

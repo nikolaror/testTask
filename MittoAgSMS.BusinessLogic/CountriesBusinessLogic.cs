@@ -21,12 +21,12 @@ namespace MittoAgSMS.BusinessLogic
             _loggerService = loggerService;
         }
 
-        public Country[] GetCountries()
+        public async Task<Country[]> GetCountries()
         {
             try
             {
                 DomainModel.Country[] domainModel = new DomainModel.Country[0];
-                domainModel = _countriesService.GetCountries();
+                domainModel = await _countriesService.GetCountries();
                 BusinessModel.Country[] blModel = Mapper.Map<MittoAgSMS.DomainModel.Country[], MittoAgSMS.BusinessModel.Country[]>(domainModel);
                 return blModel;
             }

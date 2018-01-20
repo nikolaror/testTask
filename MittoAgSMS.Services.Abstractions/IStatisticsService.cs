@@ -9,6 +9,6 @@ namespace MittoAgSMS.Services.Abstractions
 {
     public interface IStatisticsService
     {
-        List<Sms> GetStatistics(GetStatisticsRequestDomain domainrequest);
+        Task<List<Sms>> GetStatistics(GetStatisticsRequestDomain domainrequest);
     }
 }

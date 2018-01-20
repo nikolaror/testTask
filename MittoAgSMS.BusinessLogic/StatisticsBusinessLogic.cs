@@ -21,7 +21,7 @@ namespace MittoAgSMS.BusinessLogic
             _loggerService = loggerService;
         }
 
-        public Statistic[] GetStatistics(GetStatisticsRequest request)
+        public async Task<Statistic[]> GetStatistics(GetStatisticsRequest request)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace MittoAgSMS.BusinessLogic
                     DateTo = request.DateTo,
                     MccList = request.MccList?[0]?.Split(',')?.ToList<string>() ?? new List<string>()
                 };
-                List<DomainModel.Sms> sentSmsStatistics = _statisticsService.GetStatistics(domainrequest);
+                List<DomainModel.Sms> sentSmsStatistics = await _statisticsService.GetStatistics(domainrequest);
                 if (sentSmsStatistics == null)
                     return new Statistic[0];
 

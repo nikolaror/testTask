@@ -17,30 +17,34 @@ namespace MittoAgSMS.Services
 
         public SendSmsServiceMock(ISentSmsRepository sentSmsRepository)
         {
-            Log.Logger = new LoggerConfiguration()
-                            .MinimumLevel.Debug()
-                            .WriteTo.File("\\sent\\SMS.txt", rollingInterval: RollingInterval.Day)
-                            .CreateLogger();
+            if (Log.Logger == null)
+            {
+                Log.Logger = new LoggerConfiguration()
+                               .MinimumLevel.Debug()
+                               .WriteTo.File("\\sent\\SMS.txt", rollingInterval: RollingInterval.Day)
+                               .CreateLogger();
+            }
             _sentSmsRepository = sentSmsRepository;
         }
 
-        public bool SendSMS(Sms message)
+        public async Task<bool> SendSMS(Sms message)
         {
             try
             {
                 Log.Logger.Debug(message.ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return false;
+                return await Task.FromResult<bool>(false);
             }
-            return true;
+            return await Task.FromResult<bool>(true);
         }
 
-        public void InsertSentSms(Sms message)
+        public async Task<int> InsertSentSms(Sms message)
         {
             _sentSmsRepository.Add(message);
-            _sentSmsRepository.Save();
+            var result = await _sentSmsRepository.Save();
+            return result;
         }
     }
 }

@@ -22,13 +22,13 @@ namespace MittoAgSMS.Controllers
 
         [ActionName("statistics")]
         [HttpGet]
-        public IHttpActionResult GetStatistics([FromUri]GetStatisticsRequest request)
+        public async System.Threading.Tasks.Task<IHttpActionResult> GetStatistics([FromUri]GetStatisticsRequest request)
         {
             if (request == null)
                 return BadRequest();
             try
             {
-                return Ok(_statisticsBusinessLogic.GetStatistics(request));
+                return Ok(await _statisticsBusinessLogic.GetStatistics(request));
             }
             catch (Exception ex)
             {
@@ -38,11 +38,11 @@ namespace MittoAgSMS.Controllers
 
         [ActionName("countries")]
         [HttpGet]
-        public IHttpActionResult GetCountries()
+        public async System.Threading.Tasks.Task<IHttpActionResult> GetCountries()
         {
             try
             {
-                return Ok(_countriesBusinessLogic.GetCountries());
+                return Ok(await _countriesBusinessLogic.GetCountries());
             }
             catch (Exception ex)
             {

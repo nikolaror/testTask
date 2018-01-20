@@ -9,6 +9,6 @@ namespace MittoAgSMS.BusinessLogic.Abstractions
 {
     public interface ICountriesBusinessLogic
     {
-        Country[] GetCountries();
+        Task<Country[]> GetCountries();
     }
 }

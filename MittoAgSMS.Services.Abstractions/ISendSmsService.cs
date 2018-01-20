@@ -8,7 +8,7 @@ namespace MittoAgSMS.Services.Abstractions
 {
     public interface ISendSmsService
     {
-        bool SendSMS(MittoAgSMS.DomainModel.Sms domainMessage);
-        void InsertSentSms(MittoAgSMS.DomainModel.Sms message);
+        Task<bool> SendSMS(MittoAgSMS.DomainModel.Sms domainMessage);
+        Task<int> InsertSentSms(MittoAgSMS.DomainModel.Sms message);
     }
 }

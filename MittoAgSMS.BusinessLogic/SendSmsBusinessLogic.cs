@@ -29,12 +29,12 @@ namespace MittoAgSMS.BusinessLogic
             _loggerService = loggerService;
         }
 
-        public SentSmsFilterResponse GetSentSms(BusinessModel.SentSmsFilterRequest request)
+        public async Task<SentSmsFilterResponse> GetSentSms(BusinessModel.SentSmsFilterRequest request)
         {
             try
             {
                 MittoAgSMS.DomainModel.SentSmsFilterRequest dlRequest = Mapper.Map<MittoAgSMS.BusinessModel.SentSmsFilterRequest, MittoAgSMS.DomainModel.SentSmsFilterRequest>(request);
-                DomainModel.Sms[] domainResult = _getSentSmsService.GetSentSms(dlRequest);
+                DomainModel.Sms[] domainResult = await _getSentSmsService.GetSentSms(dlRequest);
                 MittoAgSMS.BusinessModel.SentSmsResponse[] itemsBl = Mapper.Map<MittoAgSMS.DomainModel.Sms[], MittoAgSMS.BusinessModel.SentSmsResponse[]>(domainResult);
                 return new SentSmsFilterResponse()
                 {
@@ -49,7 +49,7 @@ namespace MittoAgSMS.BusinessLogic
             }
         }
 
-        public State SendSMS(BusinessModel.SmsToSend message)
+        public async Task<State> SendSMS(BusinessModel.SmsToSend message)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace MittoAgSMS.BusinessLogic
                 {
                     return State.Failed;
                 }
-                string MccForPhone = _countryService.GetMccForNumber(countryCode);
+                string MccForPhone = await _countryService.GetMccForNumber(countryCode);
                 if (string.IsNullOrEmpty(MccForPhone))
                 {
                     return State.Failed;
@@ -78,7 +78,7 @@ namespace MittoAgSMS.BusinessLogic
                 bool result = true;
                 foreach (var sms in messagesList)
                 {
-                    sentSuccesfully = SendAndInsertSms(domainMessage);
+                    sentSuccesfully = await SendAndInsertSms(domainMessage);
                     if (!sentSuccesfully && result)
                     {
                         result = false;
@@ -94,7 +94,7 @@ namespace MittoAgSMS.BusinessLogic
                 _loggerService.LogError(ex.InnerException.Message);
                 throw;
             }
-}
+        }
 
         internal List<string> SplitIntoChunks(string str, int chunkSize)
         {
@@ -130,12 +130,13 @@ namespace MittoAgSMS.BusinessLogic
             return messagesList.ToArray();
         }
 
-        private bool SendAndInsertSms(DomainModel.Sms domainMessage)
+        private async Task<bool> SendAndInsertSms(DomainModel.Sms domainMessage)
         {
-            bool result = _sendSmsService.SendSMS(domainMessage);
+            bool result = await _sendSmsService.SendSMS(domainMessage);
             domainMessage.State = result;
-            _sendSmsService.InsertSentSms(domainMessage);
-            return result;
+
+            int inserted = await _sendSmsService.InsertSentSms(domainMessage);
+            return result && inserted == 1;
         }
 
         internal string GetCountryCodeFromNumber(string phone)
@@ -145,7 +146,7 @@ namespace MittoAgSMS.BusinessLogic
             string phoneNumbersClean = phoneNumbers.TrimStart('0');
             if (phoneNumbersClean.Length < 2)
                 return string.Empty;
-            return string.IsNullOrEmpty(phoneNumbersClean)?string.Empty: phoneNumbersClean.Substring(0, 2);
+            return string.IsNullOrEmpty(phoneNumbersClean) ? string.Empty : phoneNumbersClean.Substring(0, 2);
         }
     }
 }

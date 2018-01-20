@@ -18,10 +18,9 @@ namespace MittoAgSMS.Services
             _sentSmsRepository = sentSmsRepository;
         }
 
-        public Sms[] GetSentSms(SentSmsFilterRequest dlRequest)
+        public async Task<Sms[]> GetSentSms(SentSmsFilterRequest dlRequest)
         {
-            Sms[] result = _sentSmsRepository.FilterSentSms(dlRequest);
-            return result;
+            return await _sentSmsRepository.FilterSentSms(dlRequest);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace MittoAgSMS.BusinessLogic.Abstractions
 {
     public interface ISendSmsBusinessLogic
     {
-        State SendSMS(MittoAgSMS.BusinessModel.SmsToSend message);
-        SentSmsFilterResponse GetSentSms(SentSmsFilterRequest request);
+        Task<State> SendSMS(MittoAgSMS.BusinessModel.SmsToSend message);
+        Task<SentSmsFilterResponse> GetSentSms(SentSmsFilterRequest request);
     }
 }

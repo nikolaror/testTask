@@ -1,4 +1,5 @@
 ﻿using MittoAgSMS.DataAccessLayer.Abstraction;
+using MittoAgSMS.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,10 @@ namespace MittoAgSMS.DataAccessLayer
         {
         }
 
-        //public UserCertificates GetByCertificateThumbprint(string certificateThumbprint)
-        //{
-        //    return GetAll().AsQueryable().Where(x => x.CertificateThumbprint.ToLower() == certificateThumbprint.ToLower()).FirstOrDefault();
-        //}
+        public async Task<Country[]> GetAllCountries()
+        {
+            var res = await GetAll();
+            return res.AsQueryable().ToArray();
+        }
     }
 }

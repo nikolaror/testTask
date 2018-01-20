@@ -22,31 +22,30 @@ namespace MittoAgSMS.Controllers
 
         [ActionName("send")]
         [HttpGet]
-        public IHttpActionResult SendSMS([FromUri]SmsToSend message)
+        public async System.Threading.Tasks.Task<IHttpActionResult> SendSMS([FromUri]SmsToSend message)
         {
 
             if (message == null)
                 return BadRequest();
             try
             {
-                return Ok(_sendSmsBusinessLogic.SendSMS(message));
+                return Ok(await _sendSmsBusinessLogic.SendSMS(message));
             }
             catch (Exception ex)
             {
-
                 return InternalServerError();
             }
         }
 
         [ActionName("sent")]
         [HttpGet]
-        public IHttpActionResult GetSentSms([FromUri]SentSmsFilterRequest request)
+        public async System.Threading.Tasks.Task<IHttpActionResult> GetSentSms([FromUri]SentSmsFilterRequest request)
         {
             if (request == null)
                 return BadRequest();
             try
             {
-                return Ok(_sendSmsBusinessLogic.GetSentSms(request));
+                return Ok(await _sendSmsBusinessLogic.GetSentSms(request));
             }
             catch (Exception ex)
             {

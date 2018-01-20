@@ -17,10 +17,11 @@ namespace MittoAgSMS.Services
             _statisticsRepository = statisticsRepository;
 
         }
-        public List<Sms> GetStatistics(GetStatisticsRequestDomain domainrequest)
+        public async Task<List<Sms>> GetStatistics(GetStatisticsRequestDomain domainrequest)
         {
-            var sentSmsStatistic = _statisticsRepository.GetAll("Country").AsQueryable().Where(x => domainrequest.DateFrom <= x.Sent && x.Sent <= domainrequest.DateTo && domainrequest.MccList.Count>0? domainrequest.MccList.Contains(x.MobileCountryCode) : 1==1).ToList();
-            return sentSmsStatistic;
+            return await _statisticsRepository.FindBy(x => domainrequest.DateFrom <= x.Sent &&
+                    x.Sent <= domainrequest.DateTo &&
+                    domainrequest.MccList.Count > 0 ? domainrequest.MccList.Contains(x.MobileCountryCode) : 1 == 1,  x=>x.Country);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MittoAgSMS.DomainModel
 
         public override string ToString()
         {
-            return string.Format("Message|| from:{0}|| countryCode:{1}|| to:{2}|| text:{3}|| state:{4}", From, MobileCountryCode, To, Text, State);
+            return string.Format("Message|| from:{0}|| countryCode:{1}|| to:{2}|| text:{3}", From, MobileCountryCode, To, Text);
         }
     }
 }
