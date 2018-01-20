@@ -45,18 +45,18 @@ namespace MittoAgSMS.BusinessLogic
             phoneNumberValidator.SetModel(message?.To);
             if (!phoneNumberValidator.Validate())
             {
-                throw new Exception("Receiver not valid!");
+                return State.Failed;
             }
 
             string countryCode = GetCountryCodeFromNumber(message.To);
             if(string.IsNullOrEmpty(countryCode))
             {
-                throw new Exception("Receiver not valid!");
+                return State.Failed;
             }
             string MccForPhone = _countryService.GetMccForNumber(countryCode);
             if (string.IsNullOrEmpty(MccForPhone))
             {
-                throw new Exception("Mcc not valid!");
+                return State.Failed;
             }
 
             DomainModel.Sms domainMessage = new DomainModel.Sms() { From = message.From, To = message.To, Text = message.Text ?? string.Empty, MobileCountryCode = MccForPhone.Trim(), Sent = DateTime.Now };
