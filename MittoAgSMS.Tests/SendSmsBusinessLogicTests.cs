@@ -15,17 +15,19 @@ namespace MittoAgSMS.Tests
         private readonly Mock<ISendSmsService> _sendSmsService;
         private readonly Mock<IGetSentSmsService> _getSentService;
         private readonly Mock<ICountriesService> _countiresService;
+        private readonly Mock<ILoggerService> _logger;
 
         public SendSmsBusinessLogicTests()
         {
             _sendSmsService = new Mock<ISendSmsService>();
             _getSentService = new Mock<IGetSentSmsService>();
             _countiresService = new Mock<ICountriesService>();
+            _logger = new Mock<ILoggerService>();
             _sendSmsService.Setup(x => x.InsertSentSms(It.IsAny<DomainModel.Sms>()));
             _sendSmsService.Setup(x => x.SendSMS(It.IsAny<DomainModel.Sms>())).Returns(true);
             _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns("32");
 
-            _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object);
+            _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object, _logger.Object);
         }
 
         [TestMethod]
@@ -67,7 +69,7 @@ namespace MittoAgSMS.Tests
             string phone3 = "2222111111111111111";
             string phone4 = "+4988888888888888";
             string phone5 = "00787872222222227";
-            string phone6 = "078787k";
+            string phone6 = "7k";
 
             //act
             var mcc1 = _businessLogic.GetCountryCodeFromNumber(phone1);
@@ -90,33 +92,33 @@ namespace MittoAgSMS.Tests
         {
             //assign
             //act
-             var status = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
+             var status = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4444545459989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
             //assert
             Assert.AreEqual(status, BusinessModel.State.Success);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Mcc not valid!")]
-        public void SendSMS_country_code_not_valid()
+        public void SendSMS_country_code_not_valid_returns_failed()
         {
             //assign
             _countiresService.Setup(x => x.GetMccForNumber(It.IsAny<string>())).Returns("");
-            _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object);
+            _businessLogic = new SendSmsBusinessLogic(_sendSmsService.Object, _getSentService.Object, _countiresService.Object, _logger.Object);
             //act
-            var countries = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = "this is test" });
+            var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+444994545454489989", Text = "this is test" });
             //assert
+            Assert.AreEqual(result, BusinessModel.State.Failed);
 
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception),"Receiver not valid!")]
-        public void SendSMS_wrong_number_returns_exception()
+        public void SendSMS_wrong_number_returns_failed()
         {
             //assign
-
             //act
-            var countries = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "p4449989989", Text = "this is test" });
+            var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "p4449989989", Text = "this is test" });
             //assert
+            Assert.AreEqual(result, BusinessModel.State.Failed);
+
 
         }
 
@@ -132,36 +134,37 @@ namespace MittoAgSMS.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Receiver not valid!")]
-        public void SendSMS_phone_empty_returns_excpetion()
+        public void SendSMS_phone_empty_returns_failed()
         {
             //assign
 
             //act
-            var smsState = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = string.Empty, Text = string.Empty });
+            var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = string.Empty, Text = string.Empty });
             //assert
+            Assert.AreEqual(result, BusinessModel.State.Failed);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Receiver not valid!")]
-        public void SendSMS_emptysms_returns_exception()
+        public void SendSMS_emptysms_returns_state_failed()
         {
             //assign
 
             //act
-            var smsState = _businessLogic.SendSMS(new BusinessModel.SmsToSend() {});
+            var result = _businessLogic.SendSMS(new BusinessModel.SmsToSend() {});
             //assert
+            Assert.AreEqual(result, BusinessModel.State.Failed);
+
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Receiver not valid!")]
         public void SendSMS_null_returns_exception()
         {
             //assign
 
             //act
-            var smsState = _businessLogic.SendSMS(null);
+            var result = _businessLogic.SendSMS(null);
             //assert
+            Assert.AreEqual(result, BusinessModel.State.Failed);
         }
     }
 }

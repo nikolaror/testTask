@@ -12,17 +12,17 @@ namespace MittoAgSMS.Tests
     {
         private StatisticsBusinessLogic _businessLogic;
         private readonly Mock<IStatisticsService> _statisticsService;
-
-        private readonly Mock<Mapper> _automapper;
-
+        private readonly Mock<ILoggerService> _logger;
 
         public StatisticsBusinessLogicTests()
         {
             _statisticsService = new Mock<IStatisticsService>();
+            _logger = new Mock<ILoggerService>();
+
             _statisticsService.Setup(x => x.GetStatistics(It.IsAny<DomainModel.GetStatisticsRequestDomain>())).Returns(
                 new System.Collections.Generic.List<DomainModel.Sms>() { new DomainModel.Sms() { } });
 
-            _businessLogic = new StatisticsBusinessLogic(_statisticsService.Object);
+            _businessLogic = new StatisticsBusinessLogic(_statisticsService.Object, _logger.Object);
         }
 
         [TestMethod]

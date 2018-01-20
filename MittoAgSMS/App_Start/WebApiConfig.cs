@@ -39,6 +39,13 @@ namespace MittoAgSMS
 
             config.Formatters.XmlFormatter.AddUriPathExtensionMapping("xml", "application/xml");
             config.Formatters.JsonFormatter.AddUriPathExtensionMapping("json", "application/json");
+
+            config.Formatters.JsonFormatter.SerializerSettings =
+                new Newtonsoft.Json.JsonSerializerSettings
+                {
+                    DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc,
+                    DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat
+                };
         }
     }
 }

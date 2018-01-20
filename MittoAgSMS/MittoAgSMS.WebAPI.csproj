@@ -116,6 +116,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,10 +140,6 @@
     <ProjectReference Include="..\MittoAgSMS.BusinessModel\MittoAgSMS.BusinessModel.csproj">
       <Project>{55750351-9346-45BB-AC1A-86BB06A0A242}</Project>
       <Name>MittoAgSMS.BusinessModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MittoAgSMS.Common\MittoAgSMS.Common.csproj">
-      <Project>{e5dd9166-eb85-49e5-a78e-70fa3408c406}</Project>
-      <Name>MittoAgSMS.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MittoAgSMS.DomainModel\MittoAgSMS.DomainModel.csproj">
       <Project>{bff2a0b6-640c-4d21-89e2-14c07efe5010}</Project>

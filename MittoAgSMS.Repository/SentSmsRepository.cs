@@ -16,7 +16,7 @@ namespace MittoAgSMS.DataAccessLayer
 
         public Sms[] FilterSentSms(SentSmsFilterRequest request)
         {
-            return GetAll().AsQueryable().Where(x => x.Sent >= request.DateTimeFrom && x.Sent < request.DateTimeTo).OrderBy(x=>x.Sent).Skip(request.Skip).Take(request.Take).ToArray();
+            return GetAll().AsQueryable().Where(x => x.Sent >= request.DateTimeFrom && x.Sent <= request.DateTimeTo).OrderBy(x=>x.Sent).Skip(request.Skip).Take(request.Take).ToArray();
         }
     }
 }

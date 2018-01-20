@@ -33,6 +33,7 @@ namespace MittoAgSMS.Controllers
             }
             catch (Exception ex)
             {
+
                 return InternalServerError();
             }
         }

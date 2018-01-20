@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CountriesService.cs" />
     <Compile Include="GetSentSmsService.cs" />
+    <Compile Include="LoggerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendSmsServiceMock.cs" />
     <Compile Include="StatisticsService.cs" />

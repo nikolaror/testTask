@@ -34,7 +34,8 @@ namespace MittoAgSMS
             builder.RegisterType<CountriesService>().As<ICountriesService>().InstancePerRequest();
             builder.RegisterType<StatisticsService>().As<IStatisticsService>().InstancePerRequest();
             builder.RegisterType<GetSentSmsService>().As<IGetSentSmsService>().InstancePerRequest();
-            
+            builder.RegisterType<LoggerService>().As<ILoggerService>().InstancePerRequest();
+
             builder.RegisterType<SentSmsRepository>().As<ISentSmsRepository>().InstancePerRequest();
             builder.RegisterType<CountriesRepository>().As<ICountriesRepository>().InstancePerRequest();
             builder.RegisterType<StatisticsRepository>().As<IStatisticsRepository>().InstancePerRequest();

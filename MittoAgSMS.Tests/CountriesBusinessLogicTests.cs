@@ -13,12 +13,15 @@ namespace MittoAgSMS.Tests
     {
         private CountriesBusinessLogic _businessLogic;
         private readonly Mock<ICountriesService> _countriesService;
+        private readonly Mock<ILoggerService> _logger;
+
         private readonly Mock<Mapper> _automapper;
 
 
         public CountriesBusinessLogicTests()
         {
             _countriesService = new Mock<ICountriesService>();
+            _logger = new Mock<ILoggerService>();
             Mapper.Initialize(config =>
             {
                 config.CreateMap<MittoAgSMS.DomainModel.Country, MittoAgSMS.BusinessModel.Country>().
@@ -34,7 +37,7 @@ namespace MittoAgSMS.Tests
         {
             //assign
             _countriesService.Setup(x => x.GetCountries()).Returns(new Country[] { new Country() { Name = "Austria", MobileCountryCode = "9999" } });
-            _businessLogic = new CountriesBusinessLogic(_countriesService.Object);
+            _businessLogic = new CountriesBusinessLogic(_countriesService.Object, _logger.Object);
             //act
             var countries = _businessLogic.GetCountries();
             //assert
