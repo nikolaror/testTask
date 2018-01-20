@@ -51,6 +51,16 @@ namespace MittoAgSMS.DataAccessLayer
             return await query.ToListAsync();
         }
 
+        public async Task<T> FirstFindBy(Expression<Func<T, bool>> whereCondition, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _entities.Set<T>().Where(whereCondition);
+
+            if (includes.Any())
+                return await Includes(includes, query).Result.AsQueryable().FirstOrDefaultAsync();
+
+            return await query.FirstOrDefaultAsync();
+        }
+
         public virtual void Add(T entity)
         {
             _entities.Set<T>().Add(entity);

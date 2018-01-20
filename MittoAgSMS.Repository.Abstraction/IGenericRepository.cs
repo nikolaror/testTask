@@ -13,6 +13,7 @@ namespace MittoAgSMS.DataAccessLayer.Abstraction
         Task<T> GetById(params object[] keyValues);
         Task<List<T>> GetAll(params string[] includes);
         Task<List<T>> FindBy(Expression<Func<T, bool>> whereCondition, params Expression<Func<T, object>>[] includes);
+        Task<T> FirstFindBy(Expression<Func<T, bool>> whereCondition, params Expression<Func<T, object>>[] includes);
         void Add(T entity);
         void Delete(T entity);
         void Edit(T entity);

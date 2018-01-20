@@ -24,8 +24,8 @@ namespace MittoAgSMS.Services
 
         public async Task<string> GetMccForNumber(string countryCode)
         {
-            var res = await _countriesRepository.FindBy(x => x.CountryCode == countryCode);
-            return res.FirstOrDefault().MobileCountryCode;
+            var res = await _countriesRepository.FirstFindBy(x => x.CountryCode == countryCode);
+            return res.MobileCountryCode;
         }
     }
 }
