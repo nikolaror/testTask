@@ -29,13 +29,70 @@ namespace MittoAgSMS.Tests
         }
 
         [TestMethod]
-        public void SendSMS_longer_than_160_return_multiple()
+        public void SplitIntoChunks_text_returns_messages()
+        {
+            //assign
+            string text1 = new StringBuilder().Insert(0, "This is 10", 16).ToString();
+            string text2 = new StringBuilder().Insert(0, "S", 161).ToString();
+            string text3 = new StringBuilder().Insert(0, "S", 159).ToString();
+            string text4 = new StringBuilder().Insert(0, "S", 160000).ToString();
+
+            //act
+            var chunks1 = _businessLogic.SplitIntoChunks(text1, 160);
+            var chunks2 = _businessLogic.SplitIntoChunks(text2, 160);
+            var chunks3 = _businessLogic.SplitIntoChunks(text3, 160);
+            var chunks4 = _businessLogic.SplitIntoChunks(text4, 160);
+            var chunks5 = _businessLogic.SplitIntoChunks(string.Empty, 160);
+            //assert
+            Assert.AreEqual(chunks1.Count, 1);
+            Assert.AreEqual(chunks1[0].Length, 160);
+
+            Assert.AreEqual(chunks2.Count, 2);
+            Assert.AreEqual(chunks2[1].Length, 1);
+
+            Assert.AreEqual(chunks3.Count, 1);
+            Assert.AreEqual(chunks3[0].Length, 159);
+
+            Assert.AreEqual(chunks4.Count, 1000);
+
+            Assert.AreEqual(chunks5.Count, 1);
+        }
+
+        [TestMethod]
+        public void GetCountryCodeForNumber_returns_countryCode()
+        {
+            //assign
+            string phone1 = "test";
+            string phone2 = "test444422223333333";
+            string phone3 = "2222111111111111111";
+            string phone4 = "+4988888888888888";
+            string phone5 = "00787872222222227";
+            string phone6 = "078787k";
+
+            //act
+            var mcc1 = _businessLogic.GetCountryCodeFromNumber(phone1);
+            var mcc2 = _businessLogic.GetCountryCodeFromNumber(phone2);
+            var mcc3 = _businessLogic.GetCountryCodeFromNumber(phone3);
+            var mcc4 = _businessLogic.GetCountryCodeFromNumber(phone4);
+            var mcc5 = _businessLogic.GetCountryCodeFromNumber(phone5);
+            var mcc6 = _businessLogic.GetCountryCodeFromNumber(phone6);
+            //assert
+            Assert.AreEqual(mcc1, string.Empty);
+            Assert.AreEqual(mcc2, "44");
+            Assert.AreEqual(mcc3, "22");
+            Assert.AreEqual(mcc4, "49");
+            Assert.AreEqual(mcc5, "78");
+            Assert.AreEqual(mcc6, string.Empty);
+        }
+
+        [TestMethod]
+        public void SendSMS_longer_than_160_return_success()
         {
             //assign
             //act
-             var countries = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
+             var status = _businessLogic.SendSMS(new BusinessModel.SmsToSend() { From = "The sender", To = "+4449989989", Text = new StringBuilder().Insert(0, "This is 10", 31).ToString()  });
             //assert
-
+            Assert.AreEqual(status, BusinessModel.State.Success);
         }
 
         [TestMethod]

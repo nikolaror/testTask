@@ -7,10 +7,11 @@ using MittoAgSMS.Services.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+[assembly: InternalsVisibleTo("MittoAgSMS.Tests")]
 namespace MittoAgSMS.BusinessLogic
 {
     public class SendSmsBusinessLogic : ISendSmsBusinessLogic
@@ -48,6 +49,10 @@ namespace MittoAgSMS.BusinessLogic
             }
 
             string countryCode = GetCountryCodeFromNumber(message.To);
+            if(string.IsNullOrEmpty(countryCode))
+            {
+                throw new Exception("Receiver not valid!");
+            }
             string MccForPhone = _countryService.GetMccForNumber(countryCode);
             if (string.IsNullOrEmpty(MccForPhone))
             {
@@ -73,30 +78,38 @@ namespace MittoAgSMS.BusinessLogic
             return State.Success;
         }
 
-        private IEnumerable<string> SplitIntoChunks(string str, int chunkSize)
+        internal List<string> SplitIntoChunks(string str, int chunkSize)
         {
-            return Enumerable.Range(0, (str.Length / chunkSize) + (str.Length % chunkSize > 0 ? 1 : 0))
-                .Select(i => str.Substring(i * chunkSize, i.ToString().Length > chunkSize ? chunkSize : str.Length % chunkSize));
+            List<string> arrayOfMsgs = new List<string>();
+            int countMsgs = !string.IsNullOrEmpty(str) ? (str.Length / chunkSize) + (str.Length % chunkSize > 0 ? 1 : 0) : 1;
+            for (int i = 0; i < countMsgs; i++)
+            {
+                arrayOfMsgs.Add(string.Concat(str.ToCharArray().Skip(i * chunkSize).Take(chunkSize)));
+            }
+            return arrayOfMsgs;
         }
 
 
-        private DomainModel.Sms[] CreateChunks(DomainModel.Sms domainMessage)
+        internal DomainModel.Sms[] CreateChunks(DomainModel.Sms domainMessage)
         {
             string[] chunks = SplitIntoChunks(domainMessage.Text, 160).ToArray();
-            DomainModel.Sms[] messagesList = new DomainModel.Sms[chunks.Count()];
+            List<DomainModel.Sms> messagesList = new List<DomainModel.Sms>();
 
             for (int i = 0; i < chunks.Count(); i++)
             {
-                DomainModel.Sms newSms = CreateMessageFromChunk(domainMessage, chunks[i]);
-                messagesList[i] = newSms;
-            }
-            return messagesList;
-        }
 
-        private DomainModel.Sms CreateMessageFromChunk(DomainModel.Sms message, string newText)
-        {
-            message.Text = newText;
-            return message;
+                messagesList.Add(new DomainModel.Sms()
+                {
+                    Country = domainMessage.Country,
+                    From = domainMessage.From,
+                    MobileCountryCode = domainMessage.MobileCountryCode,
+                    Sent = domainMessage.Sent,
+                    State = domainMessage.State,
+                    To = domainMessage.To,
+                    Text = chunks[i]
+                });
+            }
+            return messagesList.ToArray();
         }
 
         private bool SendAndInsertSms(DomainModel.Sms domainMessage)
@@ -107,12 +120,14 @@ namespace MittoAgSMS.BusinessLogic
             return result;
         }
 
-        private string GetCountryCodeFromNumber(string phone)
+        internal string GetCountryCodeFromNumber(string phone)
         {
             string phoneNumbers = Regex.Match(phone, @"\d+").Value;
             //remove leading zeros
             string phoneNumbersClean = phoneNumbers.TrimStart('0');
-            return phoneNumbersClean.Substring(0, 2);
+            if (phoneNumbersClean.Length < 12)
+                return string.Empty;
+            return string.IsNullOrEmpty(phoneNumbersClean)?string.Empty: phoneNumbersClean.Substring(0, 2);
         }
     }
 }
