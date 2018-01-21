@@ -19,7 +19,11 @@ namespace MittoAgSMS.Controllers
         {
             _sendSmsBusinessLogic = sendSmsBusinessLogic;
         }
-
+        /// <summary>
+        /// method for sending sms
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         [ActionName("send")]
         [HttpGet]
         public async System.Threading.Tasks.Task<IHttpActionResult> SendSMS([FromUri]SmsToSend message)
@@ -36,7 +40,11 @@ namespace MittoAgSMS.Controllers
                 return InternalServerError();
             }
         }
-
+        /// <summary>
+        /// method for retreiving sent sms
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [ActionName("sent")]
         [HttpGet]
         public async System.Threading.Tasks.Task<IHttpActionResult> GetSentSms([FromUri]SentSmsFilterRequest request)

@@ -20,6 +20,11 @@ namespace MittoAgSMS.Controllers
             _statisticsBusinessLogic = statisticsBusinessLogic;
         }
 
+        /// <summary>
+        /// Method for getting statistics
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [ActionName("statistics")]
         [HttpGet]
         public async System.Threading.Tasks.Task<IHttpActionResult> GetStatistics([FromUri]GetStatisticsRequest request)
@@ -35,7 +40,10 @@ namespace MittoAgSMS.Controllers
                 return InternalServerError();
             }
         }
-
+        /// <summary>
+        /// Method for returning data about countries
+        /// </summary>
+        /// <returns></returns>
         [ActionName("countries")]
         [HttpGet]
         public async System.Threading.Tasks.Task<IHttpActionResult> GetCountries()
