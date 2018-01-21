@@ -35,19 +35,6 @@ namespace MittoAgSMS.BusinessLogic
                 if (sentSmsStatistics == null)
                     return new Statistic[0];
 
-                //var query = (from t in sentSmsStatistics
-                //             group t by new { t.Sent.Date, t.MobileCountryCode, t.Country.PricePerSms }
-                // into grp
-                //             select new Statistic
-                //             {
-                //                 Day = grp.Key.Date,
-                //                 Mcc = grp.Key.MobileCountryCode?.Trim(),
-                //                 PricePerSms = grp.Key.PricePerSms.Value,
-                //                 TotalPrice = grp.Sum(t => t.Country?.PricePerSms).Value,
-                //                 Count = grp.Count()
-                //             }).ToArray();
-
-
                 var query = sentSmsStatistics.GroupBy(
                     p => new { Sent = p.Sent == null ? p.Sent.Date : DateTime.Now, Mcc = p.MobileCountryCode ?? string.Empty, Price = p.Country != null ? p.Country.PricePerSms : 0 },
                         (key, g) => new Statistic

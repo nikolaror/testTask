@@ -22,17 +22,13 @@ namespace MittoAgSMS.DataAccessLayer
         {
             base.Configuration.ProxyCreationEnabled = false;
             base.Configuration.LazyLoadingEnabled = false;
-
-
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
-            //throw new UnintentionalCodeFirstException();
+            throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Sms> Sms { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
     }

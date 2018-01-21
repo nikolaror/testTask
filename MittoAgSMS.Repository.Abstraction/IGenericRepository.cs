@@ -15,8 +15,6 @@ namespace MittoAgSMS.DataAccessLayer.Abstraction
         Task<List<T>> FindBy(Expression<Func<T, bool>> whereCondition, params Expression<Func<T, object>>[] includes);
         Task<T> FirstFindBy(Expression<Func<T, bool>> whereCondition, params Expression<Func<T, object>>[] includes);
         void Add(T entity);
-        void Delete(T entity);
-        void Edit(T entity);
         Task<int> Save();
         DbConnection Connection();
     }

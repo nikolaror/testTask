@@ -15,7 +15,6 @@ namespace MittoAgSMS.DataAccessLayer
     {
         private DbContext _entities;
 
-        //type initialized through DI container.
         public GenericRepository(DbContext entities)
         {
             _entities = entities;
@@ -66,15 +65,6 @@ namespace MittoAgSMS.DataAccessLayer
             _entities.Set<T>().Add(entity);
         }
 
-        public virtual void Delete(T entity)
-        {
-            _entities.Set<T>().Remove(entity);
-        }
-
-        public virtual void Edit(T entity)
-        {
-            _entities.Entry(entity).State = EntityState.Modified;
-        }
 
         public virtual async Task<int> Save()
         {
